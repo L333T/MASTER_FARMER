@@ -1,0 +1,3 @@
+# Readable product source must never be pushed to the public plugin repo.
+products_src/
+tools/prometheus/
