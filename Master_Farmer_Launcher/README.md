@@ -8,7 +8,7 @@ The product is downloaded from its GitHub repo and run **from memory only**.
 > - `plugin/Master_Farmer` - the GUI (no downloads, no product code)
 > - `plugin/Master_Farmer_Core` - the core that downloads and runs the products
 >
-> Without the core the GUI shows "Master Farmer Core is not loaded". The readable source is kept off GitHub.
+> Without the core the GUI shows "Master Farmer Core is not loaded". Products that walk with the navmesh need **MasterArthasNav** (run `MasterArthasNav-Setup.exe`); while one runs, the core asks the MasterArthasNav tray app to start the server. The readable source is kept off GitHub.
 
 ## Products
 
