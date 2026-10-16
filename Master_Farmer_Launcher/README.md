@@ -3,12 +3,9 @@
 An in-game launcher. Pick a World of Warcraft version, then a product.
 The product is downloaded from its GitHub repo and run **from memory only**.
 
-> **This folder holds the ENCODED launcher**, built with `python tools/build_plugins.py --launcher`. Since 2.0.0 it is two plugins - copy **both** folders into a Sylvanas `scripts` folder:
+> **This folder holds the ENCODED launcher**, built with `python tools/build_plugins.py --launcher`. Since 2.5.0 it is **one plugin folder**: copy `plugin/Master_Farmer` into a Sylvanas `scripts` folder, and nothing else. It holds the GUI (`modules/`) and the product loader (`mfcore/`).
 >
-> - `plugin/Master_Farmer` - the GUI (no downloads, no product code)
-> - `plugin/Master_Farmer_Core` - the core that downloads and runs the products
->
-> Without the core the GUI shows "Master Farmer Core is not loaded". Products that walk with the navmesh need **MasterArthasNav** (run `MasterArthasNav-Setup.exe`); while one runs, the core asks the MasterArthasNav tray app to start the server. The readable source is kept off GitHub.
+> Remove any older `Master_Farmer_Core`, `plugin_loader` or `Master_Farmer.zip` from `scripts`: every folder there loads as its own plugin. Products that walk with the navmesh need **MasterArthasNav** (run `MasterArthasNav-Setup.exe`); while one runs, the launcher asks the MasterArthasNav tray app to start the server. The readable source is kept off GitHub.
 
 ## Products
 
@@ -23,7 +20,7 @@ The product is downloaded from its GitHub repo and run **from memory only**.
 If the AmeisenNav plugin isn't running when you press LOAD, the launcher shows a notice with
 **Copy Discord**, **Load anyway** and **Cancel** buttons. Settings shows whether Ameisen is running.
 
-Products, versions and repos are configured in the core (`plugin/Master_Farmer_Core`).
+Products, versions and repos are configured in `plugin/Master_Farmer/mfcore/catalog.lua`.
 
 ## How a product loads
 
@@ -67,9 +64,7 @@ Obfuscated errors all point at line 1.
 
 | Path | What |
 |---|---|
-| `plugin/Master_Farmer/` | Launcher GUI. Installed at `Documents/a6bc008e/scripts/Master_Farmer/` |
-| `plugin/Master_Farmer_Core/` | Launcher core (downloads and runs the products). Installed at `Documents/a6bc008e/scripts/Master_Farmer_Core/` |
-| `plugin/scripts_data/master_farmer/gui/` | GUI textures. Installed at `Documents/a6bc008e/scripts_data/master_farmer/gui/` |
+| `plugin/Master_Farmer/` | The launcher: GUI (`modules/`) + product loader (`mfcore/`). Installed at `Documents/<account>/scripts/Master_Farmer/` |
 | `products_src/` | Readable product source. **Never push this** |
 | `repos/` | Build output; each folder is a git clone of its GitHub repo |
 | `tools/` | `build_plugins.py`, `obfuscate_bot.lua` (preset), `build_gui_assets.py`, `prometheus/` |
